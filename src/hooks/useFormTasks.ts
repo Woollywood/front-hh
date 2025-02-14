@@ -12,7 +12,12 @@ export const newHardTaskDto = z.object({
 	deadline: z.string().min(1),
 	reminds: z.string().min(1),
 	all_auto_responses: z.boolean(),
-	rules: z.string().min(1),
+	rules: z.object({
+		budget_from: z.string().min(1),
+		budget_to: z.string().min(1),
+		deadline_days: z.string().min(1),
+		qty_freelancers: z.string().min(1),
+	}),
 });
 export type NewHardTaskDto = z.infer<typeof newHardTaskDto>;
 
@@ -29,7 +34,12 @@ export const useFormTasks = () => {
 			deadline: '',
 			reminds: '',
 			all_auto_responses: false,
-			rules: '',
+			rules: {
+				budget_from: '',
+				budget_to: '',
+				deadline_days: '',
+				qty_freelancers: '',
+			},
 		},
 	});
 };

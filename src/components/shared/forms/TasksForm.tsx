@@ -148,19 +148,67 @@ export const TaskForm: React.FC = () => {
 						)}
 					/>
 				</div>
-				<FormField
-					control={form.control}
-					name='rules'
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Rules</FormLabel>
-							<FormControl>
-								<Textarea {...field} className='min-h-[6rem] resize-none md:min-h-[8rem]' />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
+				<div className='space-y-2'>
+					<div className='py-6 text-center text-2xl font-medium'>
+						<h2>Rules</h2>
+					</div>
+					<div className='grid grid-cols-2 gap-x-4'>
+						<FormField
+							control={form.control}
+							name='rules.budget_from'
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Budget from</FormLabel>
+									<FormControl>
+										<InputMask {...field} maskOptions={{ mask: Number }} />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name='rules.budget_to'
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Budget to</FormLabel>
+									<FormControl>
+										<InputMask {...field} maskOptions={{ mask: Number }} />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</div>
+					<div className='grid grid-cols-2 gap-x-4'>
+						<FormField
+							control={form.control}
+							name='rules.deadline_days'
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Deadline days</FormLabel>
+									<FormControl>
+										<InputMask {...field} maskOptions={{ mask: Number }} />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name='rules.qty_freelancers'
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Qty freelancers</FormLabel>
+									<FormControl>
+										<InputMask {...field} maskOptions={{ mask: Number }} />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</div>
+				</div>
 				<FormField
 					control={form.control}
 					name='all_auto_responses'
